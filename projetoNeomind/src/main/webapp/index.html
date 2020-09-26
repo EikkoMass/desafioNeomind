@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<title>Empresa Neo - Fornecedores</title>
+</head>
+<body data-ng-app="NeoApp">
+
+	<style>
+
+	.ng-dirty.ng-invalid{
+
+	border-color: red;
+
+	}
+	
+	.ng-pristine.ng-dirty.ng-invalid{
+
+	border-color: none;
+
+	}
+
+	</style>
+
+	<div data-ng-controller="fornecedorController as controller">
+		<h2 class="display-3 d-flex justify-content-center mt-3 mb-3" style="margin: 5px auto;">Empresa Neo</h2>
+		<h5 class="text-white d-flex justify-content-center bg-danger pt-2 pb-2">Fornecedores</h5>
+		
+		
+		<form class="container-lg mt-7" name="formFornecedor" data-ng-submit="controller.salvar()" data-ng-show="controller.fornecedor" novalidate>
+		
+			<label for="id" class="control-label mt-2">ID: </label>
+			<input type="number" class="form-control w-25" id="id" data-ng-model="controller.fornecedor.id" disabled>
+			
+
+			<label for="name" class="control-label mt-2" >Nome: </label>
+			<input type="text" class="form-control w-75" id="name" name="name" class="form-text" data-ng-model="controller.fornecedor.name" required>
+			<div data-ng-if="formFornecedor.name.$dirty && !formFornecedor.name.$valid">
+			<span data-ng-if="formFornecedor.name.$error.required">Este campo é obrigatório!</span>
+			</div>
+
+	
+	
+			<label for="email" class="control-label mt-2">E-mail: </label>
+			<input type="email" class="form-control w-75" name="email" id="email" class="form-text" data-ng-model="controller.fornecedor.email" required>
+		
+			<div data-ng-if="formFornecedor.email.$dirty && !formFornecedor.email.$valid" >
+				<span data-ng-if="formFornecedor.email.$error.required">Este campo é obrigatório!</span>
+				<span data-ng-if="formFornecedor.email.$error.email">Insira um E-mail válido!</span>
+			</div>
+		
+			<label for="cnpj" class="control-label mt-2">CNPJ: </label>
+			<input type="text" maxlength="18" data-ng-minlength="18" data-ng-maxlength="18" class="form-control w-75" name="cnpj" id="cnpj" class="form-text" data-ng-model="controller.fornecedor.cnpj" ui-format required>
+			
+			
+			<div data-ng-if="formFornecedor.cnpj.$dirty && !formFornecedor.cnpj.$valid" >
+				<span data-ng-if="formFornecedor.cnpj.$error.required">Este campo é obrigatório!</span>
+			</div>
+	
+			<label for="comment" class="control-label mt-2">Comentário: </label>
+			<textarea rows="4" required class="form-control w-75" name="comment" id="comment" class="form-text" resize="none" data-ng-model="controller.fornecedor.comment" required></textarea>	
+		
+			<div data-ng-if="formFornecedor.comment.$dirty && !formFornecedor.comment.$valid" >
+				<span data-ng-if="formFornecedor.comment.$error.required">Este campo é obrigatório!</span>
+			</div>
+		
+			<button type="submit" class="btn btn-success center-block mt-4 mb-4 w-25" ng-disabled="formFornecedor.$invalid">Salvar</button>
+			<button type="button" class="btn btn-danger center-block mt-4 mb-4 w-25" data-ng-click="controller.fornecedor = undefined">Cancelar</button>
+			
+		</form>
+		
+		
+		
+		<div class="container-lg text-center" data-ng-show="!controller.fornecedor">
+			<button type="button" class="btn btn-outline-primary w-75 center-block mt-4 mb-4" data-ng-click="controller.novo()">Novo Fornecedor</button>
+			<br>
+			<table class="table table-hover">
+				<thead class="thead-dark">
+					<tr>
+						<th>ID</th>
+						<th>Nome</th>
+						<th>E-Mail</th>
+						<th>Comentário</th>
+						<th>CNPJ</th>	
+						<th>Opções</th>				
+					</tr>
+				</thead>
+				<tr data-ng-repeat="fornecedor in controller.fornecedores">
+					<td>{{fornecedor.id}}</td>
+					<td>{{fornecedor.name}}</td>
+					<td>{{fornecedor.email}}</td>
+					<td>{{fornecedor.comment}}</td>
+					<td>{{fornecedor.cnpj}}</td>
+					<td>
+						<button type="button" class="btn btn-secondary" data-ng-click="controller.alterar(fornecedor)">Alterar</button>
+						<button type="button" class="btn btn-danger" data-ng-click="controller.deletar(fornecedor)">Excluir</button>
+					</td>				
+				</tr>
+			</table>
+		
+		</div>
+	</div>
+
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.js"></script>
+	<script src="js/modulosAngular.js"></script>
+</body>
+</html>

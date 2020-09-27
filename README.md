@@ -42,7 +42,7 @@ Nota:
 - Utilizado Jersey Rest Api para Back-End,
 - Utilizado AngularJs e Bootstrap para Front-End,
 - Servidor para o projeto foi utilizado o Apache Tomcat v9.0.28,
-- Rota do Banco de dados definida na porta 3306,
+- Rota do Banco de dados (JDBC) definida na porta 3306,
 - Rota do Projeto definida na porta 8080 (localhost:8080/projetoNeomind/),
 - Banco de Dados desenvolvido e utilizado em MySql [Arquivo '.sql' e '.mwb' em: projetoNeomind\src\main\webapp\bd].
 

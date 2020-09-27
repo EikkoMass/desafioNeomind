@@ -3,14 +3,14 @@ import java.util.GregorianCalendar;
 
 public class AnguloPonteiros {
 
-	/* modelo com movimentação do ponteiro da hora em relação ao minuto */
+	/* modelo com movimentaÃ§Ã£o do ponteiro da hora em relaÃ§Ã£o ao minuto */
 	public long retornaAnguloRelogio(GregorianCalendar horario) {
 		
 		
 		int hora = horario.get(GregorianCalendar.HOUR); //formato em 12h
 		int minuto = horario.get(GregorianCalendar.MINUTE); //minutos
 		
-		// campos para manipulação de data //
+		// campos para manipulaÃ§Ã£o de data //
 		
 		//hora=00;
 		//minuto=30;
@@ -19,21 +19,21 @@ public class AnguloPonteiros {
 		
 		System.out.println(hora+":"+minuto);
 		
-		if(hora == 12) hora = 0;
+		if(hora == 0) hora = 12;
 				
 		long resultado = (11*minuto - 60*hora)/2;
 				
 		return resultado;
 	}
 	
-	/* modelo sem movimentação do ponteiro da hora em relação ao minuto 
+	/* modelo sem movimentaÃ§Ã£o do ponteiro da hora em relaÃ§Ã£o ao minuto 
 	public long retornaAnguloRelogio(GregorianCalendar horario) {
 		
 		
 		int hora = horario.get(GregorianCalendar.HOUR); //formato em 12h
 		int minuto = horario.get(GregorianCalendar.MINUTE); //minutos
 		
-		// campos para manipulação de data //
+		// campos para manipulaÃ§Ã£o de data //
 		
 		//hora=00;
 		//minuto=15;
@@ -42,7 +42,7 @@ public class AnguloPonteiros {
 		
 		System.out.println(hora+":"+minuto);
 		
-		if(hora == 12) hora = 0;
+		if(hora == 0) hora = 12;
 						
 		hora *= 30;
 		minuto *= 6;

@@ -9,13 +9,13 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		String[] options = {"Horário Atual", "Horário Personalizado"};
+		String[] options = {"HorÃ¡rio Atual", "HorÃ¡rio Personalizado"};
 		
 		
 		int selecionaOpcao = JOptionPane.showOptionDialog(
 				null, 
-				"Qual tipo de horário você deseja?", 
-				"Angulo do Relógio", 
+				"Qual tipo de horÃ¡rio vocÃª deseja?", 
+				"Angulo do RelÃ³gio", 
 				JOptionPane.OK_CANCEL_OPTION, 
 				JOptionPane.INFORMATION_MESSAGE, 
 				null, 
@@ -37,18 +37,18 @@ public class Principal {
 		
 		case 1:
 			
-			int novaHora= Integer.parseInt(JOptionPane.showInputDialog("Por Favor insira a hora desejada! [1 até 12h]")); //também aceitaria 0
+			int novaHora= Integer.parseInt(JOptionPane.showInputDialog("Por Favor insira a hora desejada! [1 atÃ© 12h]")); //tambÃ©m aceitaria 0
 			
 			while(novaHora < 1 || novaHora > 12) {
-				JOptionPane.showMessageDialog(null, "Insira um valor válido!");
-				novaHora = Integer.parseInt(JOptionPane.showInputDialog("Por Favor insira a hora desejada! [1 até 12h]"));
+				JOptionPane.showMessageDialog(null, "Insira um valor vÃ¡lido!");
+				novaHora = Integer.parseInt(JOptionPane.showInputDialog("Por Favor insira a hora desejada! [1 atÃ© 12h]"));
 			}
 			
-			int novoMinuto=Integer.parseInt(JOptionPane.showInputDialog("Por Favor insira o minuto desejado! [00 até 59]"));
+			int novoMinuto=Integer.parseInt(JOptionPane.showInputDialog("Por Favor insira o minuto desejado! [00 atÃ© 59]"));
 			
 			while(novoMinuto < 0 || novoMinuto > 59) {
-				JOptionPane.showMessageDialog(null, "Insira um valor válido!");
-				novoMinuto=Integer.parseInt(JOptionPane.showInputDialog("Por Favor insira o minuto desejado! [00 até 59]"));
+				JOptionPane.showMessageDialog(null, "Insira um valor vÃ¡lido!");
+				novoMinuto=Integer.parseInt(JOptionPane.showInputDialog("Por Favor insira o minuto desejado! [00 atÃ© 59]"));
 			}
 			
 			
@@ -58,9 +58,9 @@ public class Principal {
 			
 		}
 
-		JOptionPane.showMessageDialog(null, "Ângulo: "+ resultado +"º");
+		JOptionPane.showMessageDialog(null, "Ã‚ngulo: "+ resultado +"Âº (ou "+(360-resultado)+"Âº)");
 
-		System.out.println("Ângulo: "+ resultado +"º");
+		System.out.println("Ã‚ngulo: "+ resultado +"Âº (ou "+(360-resultado)+"Âº)");
 
 	}
 	
